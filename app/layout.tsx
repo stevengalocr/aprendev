@@ -6,13 +6,13 @@ const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Aprendev — Aprende a programar, un día a la vez',
+  title: 'GaloDev — Aprende. Codea. Construye tu futuro.',
   description:
-    'La app gamificada para aprender programación web, IA y más. Como Duolingo, pero para devs. Lecciones cortas, rachas diarias, XP y rutas de aprendizaje.',
-  keywords: ['programación', 'aprender a programar', 'web development', 'JavaScript', 'React', 'IA', 'machine learning'],
+    'La app gamificada para aprender programación, IA y tecnologías modernas. Lecciones cortas, rachas diarias, XP y rutas de carrera. Como Duolingo, para developers.',
+  keywords: ['programación', 'aprender a programar', 'JavaScript', 'React', 'IA', 'GaloDev'],
   openGraph: {
-    title: 'Aprendev — Aprende a programar, un día a la vez',
-    description: 'La app gamificada para aprender programación. Lecciones cortas, rachas y XP.',
+    title: 'GaloDev — Aprende. Codea. Construye tu futuro.',
+    description: 'La app gamificada para aprender programación. Lecciones rápidas, desafíos diarios y XP.',
     type: 'website',
   },
 }

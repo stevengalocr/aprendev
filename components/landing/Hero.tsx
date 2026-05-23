@@ -3,18 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-const ROTATING_PHRASES = [
+const PHRASES = [
+  'jugando.',
   'un día a la vez.',
-  '5 minutos al día.',
-  'sin excusas.',
+  'en 5 minutos.',
   'como un dev real.',
-]
-
-const FLOATING_BADGES = [
-  { text: '+10 XP', color: '#4ade80', bg: 'rgba(74,222,128,0.12)', border: 'rgba(74,222,128,0.35)', top: '8%', right: '5%', delay: '0s' },
-  { text: '🔥 47 días', color: '#f59e0b', bg: 'rgba(245,158,11,0.12)', border: 'rgba(245,158,11,0.35)', bottom: '15%', left: '3%', delay: '0.8s' },
-  { text: '⚡ Correcto', color: '#06b6d4', bg: 'rgba(6,182,212,0.12)', border: 'rgba(6,182,212,0.35)', top: '40%', right: '3%', delay: '1.4s' },
-  { text: '🏆 Nivel 5', color: '#a855f7', bg: 'rgba(168,85,247,0.12)', border: 'rgba(168,85,247,0.35)', top: '25%', left: '2%', delay: '2s' },
 ]
 
 export default function Hero() {
@@ -27,185 +20,168 @@ export default function Hero() {
   }, [])
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setPhraseIdx((i) => (i + 1) % ROTATING_PHRASES.length)
-    }, 2600)
-    return () => clearInterval(interval)
+    const i = setInterval(() => setPhraseIdx((p) => (p + 1) % PHRASES.length), 2800)
+    return () => clearInterval(i)
   }, [])
 
   return (
     <section
-      className='relative min-h-screen flex flex-col items-center justify-center pt-16 overflow-hidden grid-bg'
+      className='relative min-h-screen flex flex-col items-center justify-center pt-16 overflow-hidden bg-grid'
       style={{ background: 'var(--bg)' }}
     >
-      {/* Radial glow top */}
-      <div
-        className='absolute inset-0 pointer-events-none'
-        style={{
-          background:
-            'radial-gradient(ellipse 90% 55% at 50% 20%, rgba(74,222,128,0.07) 0%, transparent 65%)',
-        }}
-      />
-
-      {/* Floating notification badges */}
-      {FLOATING_BADGES.map((b) => (
-        <div
-          key={b.text}
-          className='absolute hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold float'
-          style={{
-            top: b.top, right: b.right, bottom: b.bottom, left: b.left,
-            background: b.bg,
-            border: `1px solid ${b.border}`,
-            color: b.color,
-            animationDelay: b.delay,
-          }}
-        >
-          {b.text}
-        </div>
-      ))}
+      {/* Background glows */}
+      <div className='absolute inset-0 pointer-events-none'>
+        <div style={{ position: 'absolute', top: '10%', left: '20%', width: '400px', height: '400px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(139,92,246,0.08), transparent)', filter: 'blur(40px)' }} />
+        <div style={{ position: 'absolute', bottom: '20%', right: '15%', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(99,102,241,0.07), transparent)', filter: 'blur(40px)' }} />
+      </div>
 
       {/* Content */}
       <div
         className='relative z-10 flex flex-col items-center text-center px-4 sm:px-6 max-w-4xl mx-auto'
         style={{
           opacity: visible ? 1 : 0,
-          transform: visible ? 'translateY(0)' : 'translateY(24px)',
+          transform: visible ? 'none' : 'translateY(24px)',
           transition: 'opacity 0.7s ease, transform 0.7s ease',
         }}
       >
         {/* Badge */}
-        <div className='badge-green mb-6 flex items-center gap-1.5'>
-          <span>🐧</span>
-          <span>El Duolingo de los developers — en español</span>
+        <div className='badge-purple mb-6'>
+          🐧 El Duolingo de los developers
         </div>
 
-        {/* Mascot */}
-        <div className='relative mb-4'>
+        {/* Mascot with floating badges */}
+        <div className='relative mb-5 inline-block'>
           <div className='float'>
             <Image
               src='/mascot.png'
-              alt='Pinguino mascota de Aprendev'
-              width={180}
-              height={180}
-              className='drop-shadow-2xl'
+              alt='GaloDev mascota'
+              width={200}
+              height={200}
               priority
+              className='drop-shadow-2xl'
               onError={(e) => {
                 const el = e.target as HTMLImageElement
-                el.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🐧</text></svg>'
+                el.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐧%3C/text%3E%3C/svg%3E"
               }}
             />
+          </div>
+          {/* Bubble: XP */}
+          <div
+            className='absolute -top-3 -right-8 px-3 py-1.5 rounded-full text-xs font-black float'
+            style={{ background: 'rgba(139,92,246,0.2)', border: '1px solid rgba(139,92,246,0.4)', color: '#a78bfa', animationDelay: '0.5s' }}
+          >
+            +20 XP ⚡
+          </div>
+          {/* Bubble: streak */}
+          <div
+            className='absolute -bottom-2 -left-10 px-3 py-1.5 rounded-full text-xs font-black float'
+            style={{ background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.35)', color: '#f59e0b', animationDelay: '1.2s' }}
+          >
+            🔥 47 días
           </div>
         </div>
 
         {/* Headline */}
-        <h1
-          className='text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight mb-2'
-          style={{ color: '#f0f6fc' }}
-        >
-          Aprende a programar
-        </h1>
-        <div className='h-14 sm:h-16 md:h-20 flex items-center justify-center mb-4'>
-          <h1
-            key={phraseIdx}
-            className='text-4xl sm:text-5xl md:text-6xl font-black gradient-text'
-            style={{
-              animation: 'bounceIn 0.4s cubic-bezier(0.68,-0.55,0.265,1.55)',
-            }}
-          >
-            {ROTATING_PHRASES[phraseIdx]}
+        <div className='mb-2'>
+          <h1 className='text-4xl sm:text-5xl md:text-6xl font-black tracking-tight mb-1' style={{ color: '#f8fafc' }}>
+            Aprende programación
           </h1>
+          <div className='h-14 sm:h-16 md:h-20 flex items-center justify-center'>
+            <h1
+              key={phraseIdx}
+              className='text-4xl sm:text-5xl md:text-6xl font-black gradient-text bounce-in'
+            >
+              {PHRASES[phraseIdx]}
+            </h1>
+          </div>
         </div>
 
-        {/* Sub */}
-        <p
-          className='text-lg sm:text-xl max-w-2xl mb-3 leading-relaxed'
-          style={{ color: '#8b949e' }}
-        >
-          Lecciones de{' '}
-          <span style={{ color: '#f0f6fc', fontWeight: 600 }}>5 minutos</span>.
-          Feedback instantáneo. XP, rachas y el pingüino que te{' '}
-          <span style={{ color: '#f0f6fc', fontWeight: 600 }}>mira con decepción</span>{' '}
-          si no practicas hoy.
+        {/* Tagline */}
+        <p className='text-lg sm:text-xl mb-2 max-w-xl' style={{ color: '#94a3b8' }}>
+          Aprende. Codea. <strong style={{ color: '#f8fafc' }}>Construye tu futuro.</strong>
         </p>
 
-        {/* The streak phrase - emotional hook */}
+        {/* Emotional hook */}
         <div
-          className='mb-8 px-5 py-3 rounded-xl text-sm font-medium italic'
-          style={{
-            background: 'rgba(245,158,11,0.08)',
-            border: '1px solid rgba(245,158,11,0.25)',
-            color: '#f59e0b',
-          }}
+          className='mb-8 px-5 py-2.5 rounded-xl text-sm font-medium italic'
+          style={{ background: 'rgba(245,158,11,0.07)', border: '1px solid rgba(245,158,11,0.2)', color: '#f59e0b' }}
         >
           🔥 &quot;Llevas 47 días construyendo tu futuro como developer.&quot;
         </div>
 
         {/* CTAs */}
-        <div className='flex flex-col sm:flex-row gap-3 mb-10'>
-          <Link href='/registro' className='btn-primary px-8 py-4 text-base rounded-xl'>
-            Empezar gratis — sin tarjeta 🐧
+        <div className='flex flex-col sm:flex-row gap-3 mb-8'>
+          <Link href='/app' className='btn-primary px-8 py-4 text-base rounded-2xl'>
+            🎮 Jugar gratis ahora
           </Link>
           <a
             href='#como-funciona'
-            className='px-8 py-4 text-base font-semibold rounded-xl transition-colors'
-            style={{
-              background: 'rgba(255,255,255,0.04)',
-              border: '1px solid #21262d',
-              color: '#f0f6fc',
-            }}
+            className='btn-secondary px-8 py-4 text-base rounded-2xl'
           >
             Ver cómo funciona
           </a>
         </div>
 
+        {/* Stores */}
+        <div className='flex items-center gap-2 mb-10 flex-wrap justify-center'>
+          <div
+            className='flex items-center gap-2 px-4 py-2.5 rounded-xl cursor-pointer transition-opacity hover:opacity-80'
+            style={{ background: '#000', border: '1px solid #1e2140' }}
+          >
+            <span className='text-xl'>🍎</span>
+            <div className='text-left'>
+              <p className='text-[8px] uppercase tracking-widest' style={{ color: '#94a3b8' }}>Disponible en</p>
+              <p className='text-sm font-bold' style={{ color: '#f8fafc' }}>App Store</p>
+            </div>
+          </div>
+          <div
+            className='flex items-center gap-2 px-4 py-2.5 rounded-xl cursor-pointer transition-opacity hover:opacity-80'
+            style={{ background: '#000', border: '1px solid #1e2140' }}
+          >
+            <span className='text-xl'>▶️</span>
+            <div className='text-left'>
+              <p className='text-[8px] uppercase tracking-widest' style={{ color: '#94a3b8' }}>Disponible en</p>
+              <p className='text-sm font-bold' style={{ color: '#f8fafc' }}>Google Play</p>
+            </div>
+          </div>
+        </div>
+
         {/* Social proof */}
         <div className='flex flex-wrap items-center justify-center gap-3 mb-12'>
           <div className='flex -space-x-2'>
-            {['🧑‍💻', '👩‍💻', '🧑‍💻', '👨‍💻', '👩‍💻'].map((e, i) => (
-              <div
-                key={i}
-                className='w-8 h-8 rounded-full flex items-center justify-center text-sm border-2'
-                style={{ background: '#0d1117', borderColor: '#07090f' }}
-              >
+            {['🧑‍💻','👩‍💻','🧑‍💻','👨‍💻','👩‍💻'].map((e, i) => (
+              <div key={i} className='w-8 h-8 rounded-full flex items-center justify-center border-2'
+                style={{ background: '#0f1123', borderColor: '#07080f' }}>
                 {e}
               </div>
             ))}
           </div>
-          <p className='text-sm' style={{ color: '#8b949e' }}>
-            <span style={{ color: '#f0f6fc', fontWeight: 700 }}>+50,000 devs</span>{' '}
-            ya aprendiendo · ⭐ 4.9/5
+          <p className='text-sm' style={{ color: '#94a3b8' }}>
+            <strong style={{ color: '#f8fafc' }}>+50,000 devs</strong> ya aprendiendo · ⭐ 4.9/5
           </p>
         </div>
 
-        {/* Stats row */}
+        {/* Stats */}
         <div
           className='grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-3xl'
-          style={{
-            background: 'rgba(13,17,23,0.9)',
-            border: '1px solid #21262d',
-            borderRadius: '20px',
-            padding: '20px 24px',
-          }}
+          style={{ background: 'rgba(15,17,35,0.9)', border: '1px solid #1e2140', borderRadius: '20px', padding: '20px 24px' }}
         >
           {[
             { v: '50K+', l: 'Devs activos' },
             { v: '200+', l: 'Lecciones' },
-            { v: '6', l: 'Rutas de carrera' },
-            { v: '4.9★', l: 'Valoración media' },
+            { v: '6', l: 'Rutas' },
+            { v: '4.9★', l: 'Valoración' },
           ].map((s) => (
             <div key={s.l} className='flex flex-col items-center gap-0.5'>
-              <span className='text-2xl sm:text-3xl font-black gradient-text-green'>{s.v}</span>
-              <span className='text-xs text-center' style={{ color: '#484f58' }}>{s.l}</span>
+              <span className='text-2xl sm:text-3xl font-black gradient-text'>{s.v}</span>
+              <span className='text-xs' style={{ color: '#4a5280' }}>{s.l}</span>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Bottom fade */}
-      <div
-        className='absolute bottom-0 left-0 right-0 h-28 pointer-events-none'
-        style={{ background: 'linear-gradient(to bottom, transparent, var(--bg))' }}
-      />
+      <div className='absolute bottom-0 left-0 right-0 h-24 pointer-events-none'
+        style={{ background: 'linear-gradient(to bottom, transparent, var(--bg))' }} />
     </section>
   )
 }

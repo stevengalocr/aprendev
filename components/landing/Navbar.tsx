@@ -8,18 +8,18 @@ export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
+    const fn = () => setScrolled(window.scrollY > 24)
+    window.addEventListener('scroll', fn)
+    return () => window.removeEventListener('scroll', fn)
   }, [])
 
   return (
     <nav
       className='fixed top-0 left-0 right-0 z-50 transition-all duration-300'
       style={{
-        background: scrolled ? 'rgba(7,9,15,0.92)' : 'transparent',
-        backdropFilter: scrolled ? 'blur(16px)' : 'none',
-        borderBottom: scrolled ? '1px solid #21262d' : '1px solid transparent',
+        background: scrolled ? 'rgba(7,8,15,0.92)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(20px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(30,33,64,0.8)' : '1px solid transparent',
       }}
     >
       <div className='max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between'>
@@ -28,25 +28,20 @@ export default function Navbar() {
           <div className='relative w-9 h-9'>
             <Image
               src='/mascot.png'
-              alt='Aprendev mascot'
+              alt='GaloDev'
               fill
               className='object-contain drop-shadow-lg'
               onError={(e) => {
-                const t = e.target as HTMLImageElement
-                t.style.display = 'none'
+                ;(e.target as HTMLImageElement).style.display = 'none'
               }}
             />
-            <span className='text-2xl' style={{ display: 'none' }}>🐧</span>
           </div>
-          <span
-            className='text-xl font-bold tracking-tight'
-            style={{ color: '#f0f6fc' }}
-          >
-            apren<span style={{ color: '#4ade80' }}>dev</span>
+          <span className='text-xl font-black tracking-tight' style={{ color: '#f8fafc' }}>
+            Galo<span style={{ color: '#8b5cf6' }}>Dev</span>
           </span>
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop links */}
         <div className='hidden md:flex items-center gap-6'>
           {[
             { label: 'Cursos', href: '#cursos' },
@@ -57,67 +52,60 @@ export default function Navbar() {
               key={item.href}
               href={item.href}
               className='text-sm font-medium transition-colors'
-              style={{ color: '#8b949e' }}
-              onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#f0f6fc')}
-              onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#8b949e')}
+              style={{ color: '#94a3b8' }}
+              onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#f8fafc')}
+              onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#94a3b8')}
             >
               {item.label}
             </a>
           ))}
         </div>
 
-        {/* CTA */}
+        {/* CTAs */}
         <div className='hidden md:flex items-center gap-3'>
           <Link
-            href='/login'
-            className='text-sm font-medium px-4 py-2 rounded-lg transition-colors'
-            style={{ color: '#8b949e' }}
+            href='/app'
+            className='text-sm font-medium px-4 py-2 rounded-xl transition-colors'
+            style={{ color: '#94a3b8' }}
+            onMouseEnter={(e) => ((e.target as HTMLElement).style.color = '#f8fafc')}
+            onMouseLeave={(e) => ((e.target as HTMLElement).style.color = '#94a3b8')}
           >
             Iniciar sesión
           </Link>
           <Link
-            href='/registro'
-            className='btn-primary text-sm px-5 py-2.5'
+            href='/app'
+            className='btn-primary text-sm px-5 py-2.5 rounded-xl'
           >
-            Empezar gratis →
+            Jugar gratis 🐧
           </Link>
         </div>
 
-        {/* Mobile toggle */}
+        {/* Mobile hamburger */}
         <button
           className='md:hidden p-2 rounded-lg'
-          style={{ color: '#8b949e' }}
           onClick={() => setOpen(!open)}
           aria-label='Menu'
         >
           <div className='flex flex-col gap-1.5 w-5'>
-            <span
-              className='block h-0.5 transition-all'
-              style={{
-                background: '#8b949e',
-                transform: open ? 'rotate(45deg) translateY(8px)' : 'none',
-              }}
-            />
-            <span
-              className='block h-0.5 transition-all'
-              style={{ background: '#8b949e', opacity: open ? 0 : 1 }}
-            />
-            <span
-              className='block h-0.5 transition-all'
-              style={{
-                background: '#8b949e',
-                transform: open ? 'rotate(-45deg) translateY(-8px)' : 'none',
-              }}
-            />
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                className='block h-0.5 rounded-full transition-all duration-200'
+                style={{
+                  background: '#94a3b8',
+                  transform: open && i === 0 ? 'rotate(45deg) translateY(8px)' : open && i === 2 ? 'rotate(-45deg) translateY(-8px)' : 'none',
+                  opacity: open && i === 1 ? 0 : 1,
+                }}
+              />
+            ))}
           </div>
         </button>
       </div>
 
-      {/* Mobile menu */}
       {open && (
         <div
           className='md:hidden px-4 pb-4 pt-2'
-          style={{ background: 'rgba(7,9,15,0.98)', borderBottom: '1px solid #21262d' }}
+          style={{ background: 'rgba(7,8,15,0.98)', borderBottom: '1px solid #1e2140' }}
         >
           <div className='flex flex-col gap-3'>
             {[
@@ -125,21 +113,13 @@ export default function Navbar() {
               { label: 'Cómo funciona', href: '#como-funciona' },
               { label: 'Precios', href: '#precios' },
             ].map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className='text-sm font-medium py-2'
-                style={{ color: '#8b949e' }}
-              >
+              <a key={item.href} href={item.href} onClick={() => setOpen(false)}
+                className='text-sm font-medium py-2' style={{ color: '#94a3b8' }}>
                 {item.label}
               </a>
             ))}
-            <Link
-              href='/registro'
-              className='btn-primary text-sm text-center px-5 py-3 mt-2'
-            >
-              Empezar gratis →
+            <Link href='/app' className='btn-primary text-sm text-center px-5 py-3 mt-1 rounded-xl'>
+              🐧 Jugar gratis
             </Link>
           </div>
         </div>

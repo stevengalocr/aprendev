@@ -3,115 +3,46 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <footer
-      className='py-12 px-4 sm:px-6'
-      style={{ background: '#020408', borderTop: '1px solid #21262d' }}
-    >
+    <footer className='py-12 px-4 sm:px-6' style={{ background: '#030408', borderTop: '1px solid #1e2140' }}>
       <div className='max-w-6xl mx-auto'>
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10'>
-          {/* Brand */}
           <div className='lg:col-span-1'>
             <div className='flex items-center gap-2 mb-3'>
-              <Image
-                src='/mascot.png'
-                alt='Aprendev'
-                width={32}
-                height={32}
-                className='object-contain'
-              />
-              <span className='text-lg font-bold' style={{ color: '#f0f6fc' }}>
-                apren<span style={{ color: '#4ade80' }}>dev</span>
-              </span>
+              <Image src='/mascot.png' alt='GaloDev' width={30} height={30} className='object-contain' />
+              <span className='text-lg font-black' style={{ color: '#f8fafc' }}>Galo<span style={{ color: '#8b5cf6' }}>Dev</span></span>
             </div>
-            <p className='text-sm leading-relaxed mb-4' style={{ color: '#8b949e' }}>
-              La plataforma gamificada para aprender programación en Latinoamérica.
-              Hecho con ❤️ para devs.
+            <p className='text-sm leading-relaxed mb-2' style={{ color: '#94a3b8' }}>
+              Aprende. Codea. Construye tu futuro.<br/>
+              Hecho para la comunidad dev de LATAM. 🐧
             </p>
-            <div className='flex gap-3'>
-              {['𝕏', '📸', '💼', '🎮'].map((icon) => (
-                <button
-                  key={icon}
-                  className='w-8 h-8 rounded-lg flex items-center justify-center text-sm transition-colors'
-                  style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid #21262d', color: '#8b949e' }}
-                >
-                  {icon}
-                </button>
-              ))}
+            <p className='text-xs italic' style={{ color: '#4a5280' }}>
+              "Llevas 47 días construyendo tu futuro."
+            </p>
+          </div>
+          {[
+            { title: 'Producto', links: ['Cursos', 'Rutas de carrera', 'Desafíos diarios', 'Precios', 'Changelog'] },
+            { title: 'Comunidad', links: ['Discord', 'Blog', 'Newsletter', 'Podcast', 'Open source'] },
+            { title: 'Empresa', links: ['Sobre nosotros', 'Trabaja con nosotros', 'Términos', 'Privacidad', 'Contacto'] },
+          ].map((col) => (
+            <div key={col.title}>
+              <h4 className='font-semibold text-sm mb-4' style={{ color: '#f8fafc' }}>{col.title}</h4>
+              <ul className='flex flex-col gap-2'>
+                {col.links.map((l) => (
+                  <li key={l}>
+                    <Link href='#' className='text-sm transition-colors' style={{ color: '#94a3b8' }}>
+                      {l}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </div>
-          </div>
-
-          {/* Product */}
-          <div>
-            <h4 className='font-semibold text-sm mb-4' style={{ color: '#f0f6fc' }}>
-              Producto
-            </h4>
-            <ul className='flex flex-col gap-2'>
-              {['Cursos', 'Rutas de carrera', 'Precios', 'Changelog', 'Roadmap'].map((item) => (
-                <li key={item}>
-                  <Link
-                    href='#'
-                    className='text-sm transition-colors hover:text-white'
-                    style={{ color: '#8b949e' }}
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h4 className='font-semibold text-sm mb-4' style={{ color: '#f0f6fc' }}>
-              Recursos
-            </h4>
-            <ul className='flex flex-col gap-2'>
-              {['Blog', 'Comunidad Discord', 'Podcast', 'Newsletter', 'Open source'].map((item) => (
-                <li key={item}>
-                  <Link
-                    href='#'
-                    className='text-sm transition-colors hover:text-white'
-                    style={{ color: '#8b949e' }}
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h4 className='font-semibold text-sm mb-4' style={{ color: '#f0f6fc' }}>
-              Empresa
-            </h4>
-            <ul className='flex flex-col gap-2'>
-              {['Sobre nosotros', 'Trabaja con nosotros', 'Términos de uso', 'Privacidad', 'Contacto'].map((item) => (
-                <li key={item}>
-                  <Link
-                    href='#'
-                    className='text-sm transition-colors hover:text-white'
-                    style={{ color: '#8b949e' }}
-                  >
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          ))}
         </div>
 
-        {/* Bottom bar */}
-        <div
-          className='flex flex-col sm:flex-row items-center justify-between gap-3 pt-8'
-          style={{ borderTop: '1px solid #21262d' }}
-        >
-          <p className='text-xs' style={{ color: '#484f58' }}>
-            © 2025 Aprendev. Hecho con 🐧 para la comunidad dev de LATAM.
-          </p>
-          <div className='flex items-center gap-1 text-xs' style={{ color: '#484f58' }}>
+        <div className='flex flex-col sm:flex-row items-center justify-between gap-3 pt-8' style={{ borderTop: '1px solid #1e2140' }}>
+          <p className='text-xs' style={{ color: '#4a5280' }}>© 2025 GaloDev. Hecho con 🐧 para LATAM.</p>
+          <div className='flex items-center gap-1 text-xs' style={{ color: '#4a5280' }}>
             <span>🇲🇽 🇨🇴 🇦🇷 🇨🇱 🇵🇪 🇻🇪 🇪🇸</span>
-            <span className='ml-1'>Español, para todos</span>
           </div>
         </div>
       </div>
