@@ -10,7 +10,7 @@ export default function CTA() {
       <div className='max-w-3xl mx-auto text-center relative z-10'>
         <div className='relative inline-block mb-6'>
           <div className='float'>
-            <Image src='/mascot.png' alt='GaloDev' width={140} height={140} className='drop-shadow-2xl mx-auto' />
+            <Image src='/mascot.png' alt='AprenDev' width={140} height={140} className='drop-shadow-2xl mx-auto' />
           </div>
           <div className='absolute -top-3 -right-3 w-8 h-8 rounded-full flex items-center justify-center animate-bounce'
             style={{ background: 'rgba(139,92,246,0.2)', border: '1px solid rgba(139,92,246,0.4)' }}>💡</div>

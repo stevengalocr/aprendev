@@ -8,8 +8,8 @@ export default function Footer() {
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10'>
           <div className='lg:col-span-1'>
             <div className='flex items-center gap-2 mb-3'>
-              <Image src='/mascot.png' alt='GaloDev' width={30} height={30} className='object-contain' />
-              <span className='text-lg font-black' style={{ color: '#f8fafc' }}>Galo<span style={{ color: '#8b5cf6' }}>Dev</span></span>
+              <Image src='/mascot.png' alt='AprenDev' width={30} height={30} className='object-contain' />
+              <span className='text-lg font-black' style={{ color: '#f8fafc' }}>Apren<span style={{ color: '#8b5cf6' }}>Dev</span></span>
             </div>
             <p className='text-sm leading-relaxed mb-2' style={{ color: '#94a3b8' }}>
               Aprende. Codea. Construye tu futuro.<br/>
@@ -40,7 +40,7 @@ export default function Footer() {
         </div>
 
         <div className='flex flex-col sm:flex-row items-center justify-between gap-3 pt-8' style={{ borderTop: '1px solid #1e2140' }}>
-          <p className='text-xs' style={{ color: '#4a5280' }}>© 2025 GaloDev. Hecho con 🐧 para LATAM.</p>
+          <p className='text-xs' style={{ color: '#4a5280' }}>© 2025 AprenDev. Hecho con 🐧 para LATAM.</p>
           <div className='flex items-center gap-1 text-xs' style={{ color: '#4a5280' }}>
             <span>🇲🇽 🇨🇴 🇦🇷 🇨🇱 🇵🇪 🇻🇪 🇪🇸</span>
           </div>

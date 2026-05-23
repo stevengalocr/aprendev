@@ -28,7 +28,7 @@ export default function Navbar() {
           <div className='relative w-9 h-9'>
             <Image
               src='/mascot.png'
-              alt='GaloDev'
+              alt='AprenDev'
               fill
               className='object-contain drop-shadow-lg'
               onError={(e) => {
@@ -37,7 +37,7 @@ export default function Navbar() {
             />
           </div>
           <span className='text-xl font-black tracking-tight' style={{ color: '#f8fafc' }}>
-            Galo<span style={{ color: '#8b5cf6' }}>Dev</span>
+            Apren<span style={{ color: '#8b5cf6' }}>Dev</span>
           </span>
         </Link>
 

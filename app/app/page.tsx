@@ -79,7 +79,7 @@ export default function AppHome() {
         {/* Greeting */}
         <div className='mb-5'>
           <h1 className='text-xl font-black' style={{ color: '#f8fafc' }}>
-            ¡Hola, GaloDev! 👋
+            ¡Hola, AprenDev! 👋
           </h1>
           <p className='text-sm' style={{ color: '#94a3b8' }}>¿Qué vamos a aprender hoy?</p>
         </div>

@@ -54,7 +54,7 @@ export default function Perfil() {
               ✏️
             </div>
           </div>
-          <h2 className='text-lg font-black mb-0.5' style={{ color: '#f8fafc' }}>GaloDev</h2>
+          <h2 className='text-lg font-black mb-0.5' style={{ color: '#f8fafc' }}>AprenDev</h2>
           <p className='text-sm' style={{ color: '#8b5cf6' }}>Frontend Explorer</p>
         </div>
 

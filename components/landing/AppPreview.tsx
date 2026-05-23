@@ -41,7 +41,7 @@ export default function AppPreview() {
             <span className='gradient-text'>diseñada para el teléfono</span>
           </h2>
           <p className='text-lg max-w-xl mx-auto mb-8' style={{ color: '#94a3b8' }}>
-            GaloDev es 100% mobile-first. Cada pantalla está optimizada para aprender
+            AprenDev es 100% mobile-first. Cada pantalla está optimizada para aprender
             en el metro, en el café, donde sea.
           </p>
           <Link href='/app' className='btn-primary inline-flex px-8 py-4 rounded-2xl text-base'>

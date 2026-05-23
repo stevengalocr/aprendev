@@ -54,7 +54,7 @@ export default function Hero() {
           <div className='float'>
             <Image
               src='/mascot.png'
-              alt='GaloDev mascota'
+              alt='AprenDev mascota'
               width={200}
               height={200}
               priority

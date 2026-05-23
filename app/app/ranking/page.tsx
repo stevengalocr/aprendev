@@ -8,7 +8,7 @@ const TOP3 = [
 
 const REST = [
   { rank: 4, name: 'ProgramadorX', avatar: '🐱‍💻', xp: 1650, me: false },
-  { rank: 5, name: 'GaloDev', avatar: '🐧', xp: 1250, me: true },
+  { rank: 5, name: 'AprenDev', avatar: '🐧', xp: 1250, me: true },
   { rank: 6, name: 'YoungDev', avatar: '🧑‍🎓', xp: 980, me: false },
   { rank: 7, name: 'ScriptBoi', avatar: '📜', xp: 870, me: false },
   { rank: 8, name: 'ByteWizard', avatar: '🧙', xp: 760, me: false },

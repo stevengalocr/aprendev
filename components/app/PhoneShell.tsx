@@ -25,7 +25,7 @@ export default function PhoneShell({ children }: { children: ReactNode }) {
         >
           <span style={{ fontSize: '1.25rem' }}>🐧</span>
           <span>
-            Galo<span style={{ color: '#8b5cf6' }}>Dev</span>
+            Apren<span style={{ color: '#8b5cf6' }}>Dev</span>
           </span>
           <span style={{ color: '#4a5280', marginLeft: '4px' }}>← Landing</span>
         </a>

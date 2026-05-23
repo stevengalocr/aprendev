@@ -8,11 +8,11 @@ const EXERCISES = [
   {
     id: 1,
     question: '¿Qué imprimirá este código?',
-    code: `function saludo() {\n  return 'Hola GaloDev';\n}\n\nconsole.log(saludo());`,
-    options: ['Hola Mundo', 'Hola GaloDev', 'undefined', 'saludo()'],
+    code: `function saludo() {\n  return 'Hola AprenDev';\n}\n\nconsole.log(saludo());`,
+    options: ['Hola Mundo', 'Hola AprenDev', 'undefined', 'saludo()'],
     correct: 1,
     xp: 20,
-    explanation: 'La función saludo() retorna el string "Hola GaloDev". console.log() lo imprime.',
+    explanation: 'La función saludo() retorna el string "Hola AprenDev". console.log() lo imprime.',
   },
   {
     id: 2,
