@@ -1,0 +1,306 @@
+export type Locale = 'es' | 'en' | 'pt'
+
+export const LOCALES: { code: Locale; label: string; flag: string }[] = [
+  { code: 'es', label: 'Español',    flag: '🇪🇸' },
+  { code: 'en', label: 'English',    flag: '🇺🇸' },
+  { code: 'pt', label: 'Português',  flag: '🇧🇷' },
+]
+
+export const translations = {
+  es: {
+    // Nav
+    nav: { home: 'Inicio', learn: 'Aprender', challenges: 'Desafíos', ranking: 'Ranking', profile: 'Perfil' },
+    // Dashboard
+    dash: {
+      greeting: '¡Hola, {{name}}! 👋',
+      subtitle: '¿Qué vamos a aprender hoy?',
+      dailyMission: 'Misión diaria',
+      learningPaths: 'Rutas de aprendizaje',
+      viewAll: 'Ver todas',
+      streak: 'Racha actual',
+      totalXP: 'XP total',
+      position: 'Posición',
+      days: 'días',
+      points: 'puntos',
+    },
+    // Lesson
+    lesson: {
+      hearts: 'Corazones',
+      check: 'Comprobar',
+      correct: '¡Correcto!',
+      wrong: '¡Incorrecto!',
+      continue: 'Continuar',
+      finish: 'Terminar lección',
+      result: '¡Lección completada!',
+      xpEarned: 'XP ganados',
+      perfect: '¡Perfecto! 🎉',
+      good: '¡Bien hecho! 💪',
+      tryAgain: 'Sigue practicando 🐧',
+      selectAnswer: 'Selecciona una respuesta',
+      matchPairs: 'Conecta los pares',
+      fillBlank: 'Completa el código',
+      orderCode: 'Ordena el código',
+    },
+    // Challenges
+    challenges: {
+      title: 'Desafío Diario',
+      timeLeft: 'Tiempo restante',
+      completed: 'Completados',
+      streakCurrent: 'Racha actual',
+      streakBest: 'Tu mejor racha',
+      start: 'Comenzar desafío',
+      reward: 'Recompensa',
+    },
+    // Ranking
+    ranking: {
+      title: 'Ranking Semanal',
+      seasonEnds: 'La temporada termina en {{days}} días',
+      you: 'Tú',
+    },
+    // Profile
+    profile: {
+      title: 'Perfil',
+      lessons: 'Lecciones\ncompletadas',
+      challenges: 'Desafíos\ncompletados',
+      achievements: 'Logros',
+      viewAll: 'Ver todos',
+      streak: 'días de racha',
+      streakMessage: 'Llevas {{days}} días construyendo tu futuro como developer.',
+    },
+    // Onboarding
+    onboarding: {
+      welcome: '¡Bienvenido a AprenDev!',
+      pickTrack: '¿Qué quieres aprender?',
+      pickLevel: '¿Cuál es tu nivel?',
+      pickGoal: '¿Cuánto tiempo al día?',
+      yourName: '¿Cómo te llamamos?',
+      start: '¡Empezar a aprender!',
+      beginner: 'Principiante',
+      intermediate: 'Intermedio',
+      advanced: 'Avanzado',
+      min5: '5 min / día',
+      min10: '10 min / día',
+      min20: '20 min / día',
+    },
+    // Demo panel
+    demo: {
+      title: 'Panel Demo',
+      advanceDay: 'Avanzar día',
+      advanceDays: 'Avanzar {{n}} días',
+      reset: 'Resetear demo',
+      day: 'Día simulado',
+    },
+    // Common
+    common: {
+      level: 'Nivel',
+      xp: 'XP',
+      gems: 'Gemas',
+      hearts: 'Corazones',
+      streak: 'Racha',
+      loading: 'Cargando...',
+      back: 'Volver',
+      next: 'Siguiente',
+      skip: 'Omitir',
+      locked: 'Bloqueado',
+      completed: 'Completado',
+    },
+  },
+
+  en: {
+    nav: { home: 'Home', learn: 'Learn', challenges: 'Challenges', ranking: 'Ranking', profile: 'Profile' },
+    dash: {
+      greeting: 'Hello, {{name}}! 👋',
+      subtitle: 'What are we learning today?',
+      dailyMission: 'Daily mission',
+      learningPaths: 'Learning paths',
+      viewAll: 'View all',
+      streak: 'Current streak',
+      totalXP: 'Total XP',
+      position: 'Position',
+      days: 'days',
+      points: 'points',
+    },
+    lesson: {
+      hearts: 'Hearts',
+      check: 'Check',
+      correct: 'Correct!',
+      wrong: 'Incorrect!',
+      continue: 'Continue',
+      finish: 'Finish lesson',
+      result: 'Lesson complete!',
+      xpEarned: 'XP earned',
+      perfect: 'Perfect! 🎉',
+      good: 'Well done! 💪',
+      tryAgain: 'Keep practicing 🐧',
+      selectAnswer: 'Select an answer',
+      matchPairs: 'Match the pairs',
+      fillBlank: 'Fill in the code',
+      orderCode: 'Order the code',
+    },
+    challenges: {
+      title: 'Daily Challenge',
+      timeLeft: 'Time left',
+      completed: 'Completed',
+      streakCurrent: 'Current streak',
+      streakBest: 'Best streak',
+      start: 'Start challenge',
+      reward: 'Reward',
+    },
+    ranking: {
+      title: 'Weekly Ranking',
+      seasonEnds: 'Season ends in {{days}} days',
+      you: 'You',
+    },
+    profile: {
+      title: 'Profile',
+      lessons: 'Lessons\ncompleted',
+      challenges: 'Challenges\ncompleted',
+      achievements: 'Achievements',
+      viewAll: 'View all',
+      streak: 'day streak',
+      streakMessage: "You've been building your dev future for {{days}} days.",
+    },
+    onboarding: {
+      welcome: 'Welcome to AprenDev!',
+      pickTrack: 'What do you want to learn?',
+      pickLevel: "What's your level?",
+      pickGoal: 'How much time per day?',
+      yourName: 'What should we call you?',
+      start: 'Start learning!',
+      beginner: 'Beginner',
+      intermediate: 'Intermediate',
+      advanced: 'Advanced',
+      min5: '5 min / day',
+      min10: '10 min / day',
+      min20: '20 min / day',
+    },
+    demo: {
+      title: 'Demo Panel',
+      advanceDay: 'Advance day',
+      advanceDays: 'Advance {{n}} days',
+      reset: 'Reset demo',
+      day: 'Simulated day',
+    },
+    common: {
+      level: 'Level',
+      xp: 'XP',
+      gems: 'Gems',
+      hearts: 'Hearts',
+      streak: 'Streak',
+      loading: 'Loading...',
+      back: 'Back',
+      next: 'Next',
+      skip: 'Skip',
+      locked: 'Locked',
+      completed: 'Completed',
+    },
+  },
+
+  pt: {
+    nav: { home: 'Início', learn: 'Aprender', challenges: 'Desafios', ranking: 'Ranking', profile: 'Perfil' },
+    dash: {
+      greeting: 'Olá, {{name}}! 👋',
+      subtitle: 'O que vamos aprender hoje?',
+      dailyMission: 'Missão diária',
+      learningPaths: 'Trilhas de aprendizado',
+      viewAll: 'Ver todas',
+      streak: 'Sequência atual',
+      totalXP: 'XP total',
+      position: 'Posição',
+      days: 'dias',
+      points: 'pontos',
+    },
+    lesson: {
+      hearts: 'Corações',
+      check: 'Verificar',
+      correct: 'Correto!',
+      wrong: 'Incorreto!',
+      continue: 'Continuar',
+      finish: 'Terminar lição',
+      result: 'Lição concluída!',
+      xpEarned: 'XP ganhos',
+      perfect: 'Perfeito! 🎉',
+      good: 'Muito bem! 💪',
+      tryAgain: 'Continue praticando 🐧',
+      selectAnswer: 'Selecione uma resposta',
+      matchPairs: 'Conecte os pares',
+      fillBlank: 'Complete o código',
+      orderCode: 'Ordene o código',
+    },
+    challenges: {
+      title: 'Desafio Diário',
+      timeLeft: 'Tempo restante',
+      completed: 'Concluídos',
+      streakCurrent: 'Sequência atual',
+      streakBest: 'Melhor sequência',
+      start: 'Começar desafio',
+      reward: 'Recompensa',
+    },
+    ranking: {
+      title: 'Ranking Semanal',
+      seasonEnds: 'A temporada termina em {{days}} dias',
+      you: 'Você',
+    },
+    profile: {
+      title: 'Perfil',
+      lessons: 'Lições\nconcluídas',
+      challenges: 'Desafios\nconcluídos',
+      achievements: 'Conquistas',
+      viewAll: 'Ver todas',
+      streak: 'dias de sequência',
+      streakMessage: 'Você está construindo seu futuro como dev há {{days}} dias.',
+    },
+    onboarding: {
+      welcome: 'Bem-vindo ao AprenDev!',
+      pickTrack: 'O que você quer aprender?',
+      pickLevel: 'Qual é o seu nível?',
+      pickGoal: 'Quanto tempo por dia?',
+      yourName: 'Como podemos te chamar?',
+      start: 'Começar a aprender!',
+      beginner: 'Iniciante',
+      intermediate: 'Intermediário',
+      advanced: 'Avançado',
+      min5: '5 min / dia',
+      min10: '10 min / dia',
+      min20: '20 min / dia',
+    },
+    demo: {
+      title: 'Painel Demo',
+      advanceDay: 'Avançar dia',
+      advanceDays: 'Avançar {{n}} dias',
+      reset: 'Resetar demo',
+      day: 'Dia simulado',
+    },
+    common: {
+      level: 'Nível',
+      xp: 'XP',
+      gems: 'Gemas',
+      hearts: 'Corações',
+      streak: 'Sequência',
+      loading: 'Carregando...',
+      back: 'Voltar',
+      next: 'Próximo',
+      skip: 'Pular',
+      locked: 'Bloqueado',
+      completed: 'Concluído',
+    },
+  },
+} as const
+
+export type TranslationKey = keyof typeof translations.es
+
+export function t(
+  locale: Locale,
+  section: keyof typeof translations.es,
+  key: string,
+  vars?: Record<string, string | number>
+): string {
+  const lang = translations[locale] as Record<string, Record<string, string>>
+  let text = lang[section]?.[key] ?? translations.es[section as keyof typeof translations.es][key as never] ?? key
+  if (vars) {
+    Object.entries(vars).forEach(([k, v]) => {
+      text = text.replace(`{{${k}}}`, String(v))
+    })
+  }
+  return text
+}
