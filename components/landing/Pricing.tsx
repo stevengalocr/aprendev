@@ -121,7 +121,7 @@ export default function Pricing() {
             </ul>
 
             <Link
-              href='/registro'
+              href='/app'
               className='block text-center py-3 rounded-xl font-semibold transition-colors'
               style={{
                 background: 'rgba(255,255,255,0.05)',
@@ -175,7 +175,7 @@ export default function Pricing() {
             </ul>
 
             <Link
-              href='/registro?plan=pro'
+              href='/app'
               className='btn-primary block text-center py-3 rounded-xl text-sm'
             >
               Empezar con Pro →

@@ -197,7 +197,7 @@ export default function Courses() {
         {/* CTA */}
         <div className='text-center mt-12'>
           <a
-            href='/registro'
+            href='/app'
             className='btn-primary inline-block px-8 py-4 text-base rounded-xl'
           >
             Ver todas las lecciones →
